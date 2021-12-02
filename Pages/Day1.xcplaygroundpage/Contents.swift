@@ -3,7 +3,6 @@
 import Foundation
 
 class Day1 {
-    let inputString: String
     let measurements: [Int?]
     
     private static func numOfIncreases(values: [Int?]) -> Int {
@@ -22,7 +21,7 @@ class Day1 {
     init() {
         do {
             if let inputUrl = Bundle.main.url(forResource: "pt1-input", withExtension: "txt") {
-                inputString = try String(contentsOf: inputUrl)
+                let inputString = try String(contentsOf: inputUrl)
                 measurements = inputString.split{ $0.isNewline }.map{ Int($0) }
             } else {
                 preconditionFailure("Cannot find input file")
