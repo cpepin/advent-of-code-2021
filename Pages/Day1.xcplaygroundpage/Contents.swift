@@ -19,16 +19,7 @@ class Day1 {
     }
 
     init() {
-        do {
-            if let inputUrl = Bundle.main.url(forResource: "pt1-input", withExtension: "txt") {
-                let inputString = try String(contentsOf: inputUrl)
-                measurements = inputString.split{ $0.isNewline }.map{ Int($0) }
-            } else {
-                preconditionFailure("Cannot find input file")
-            }
-        } catch {
-            preconditionFailure("Error loading contents of input file: \(error)")
-        }
+        measurements = Utils.parseInput(inputUrl: "pt1-input").map{ Int($0) }
     }
     
     func pt1() -> Int {

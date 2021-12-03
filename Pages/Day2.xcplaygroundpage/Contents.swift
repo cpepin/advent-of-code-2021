@@ -19,16 +19,7 @@ class Day2 {
     }
 
     init() {
-        do {
-            if let inputUrl = Bundle.main.url(forResource: "pt1-input", withExtension: "txt") {
-                let inputString = try String(contentsOf: inputUrl)
-                commands = inputString.split{ $0.isNewline }.map{ Day2.parseCommand(command: $0) }
-            } else {
-                preconditionFailure("Cannot find input file")
-            }
-        } catch {
-            preconditionFailure("Error loading contents of input file: \(error)")
-        }
+        commands = Utils.parseInput(inputUrl: "pt1-input").map{ Day2.parseCommand(command: $0) }
     }
     
     func pt1() -> Int {
